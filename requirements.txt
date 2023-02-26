@@ -1,0 +1,6 @@
+argparse
+logging
+opencv-python
+torch
+torchvision
+vit-pytorch
