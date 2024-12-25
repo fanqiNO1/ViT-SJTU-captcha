@@ -133,6 +133,7 @@ def parse_args():
     parser.add_argument('--depth', type=int, default=6)
     parser.add_argument('--heads', type=int, default=8)
     parser.add_argument('--mlp_dim', type=int, default=128)
+    parser.add_argument('--kv_heads', type=int, default=2)
     # For inference
     parser.add_argument('--ckpt', type=str, default='model.pth')
     parser.add_argument('--device', type=str, default='cpu')
@@ -210,6 +211,7 @@ def main(args):
         depth=args.depth,
         heads=args.heads,
         mlp_dim=args.mlp_dim,
+        kv_heads=args.kv_heads,
     )
     ckpt = torch.load(args.ckpt, map_location='cpu')
     model.load_state_dict(ckpt)
