@@ -2,5 +2,4 @@ dataset
 labelled
 labelled.tar.zst
 models
-temp.py
 __pycache__
