@@ -18,8 +18,8 @@ The latest version of the model is [v2](v2). The performance comparison of all v
 
 | Model | #Parameters | Character Classification Accuracy | Captcha Accuracy | Character Classification FPS | Captcha FPS FPS | Preprocessing FPS | Weights |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| [v2](v2) | 211.53K | 99.99% (240296/240301) | 98.82% (53543/54180) | 1174.71 | 98.43 | 157.62 | [权重](https://github.com/fanqiNO1/ViT-SJTU-captcha/releases/tag/model-v2) |
-| [v1](v1) | 873.25K | 99.99% (240296/240301) | 98.82% (53543/54180) | 1293.20 | 85.02 | 120.53 | [权重](https://github.com/fanqiNO1/ViT-SJTU-captcha/releases/tag/model) |
+| [v2](v2) | 211.53K | 99.99% (240296/240301) | 98.82% (53543/54180) | 1174.71 | 98.43 | 157.62 | [weights](https://github.com/fanqiNO1/ViT-SJTU-captcha/releases/tag/model-v2) |
+| [v1](v1) | 873.25K | 99.99% (240296/240301) | 98.82% (53543/54180) | 1293.20 | 85.02 | 120.53 | [weights](https://github.com/fanqiNO1/ViT-SJTU-captcha/releases/tag/model) |
 
 Testing environment: PyTorch v2.6.0, Intel(R) Core(TM) i7-13700, 16GB RAM.
 
