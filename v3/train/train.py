@@ -83,7 +83,7 @@ def main():
         val_dataloader=test_loader,
         train_cfg=dict(by_epoch=True, max_epochs=max_epochs, val_interval=1),
         val_cfg=dict(),
-        optim_wrapper=dict(optimizer=dict(type=torch.optim.AdamW, lr=5e-3)),
+        optim_wrapper=dict(optimizer=dict(type=torch.optim.AdamW, lr=1e-3)),
         param_scheduler=[
             dict(type=LinearLR,
                  start_factor=1e-3,
