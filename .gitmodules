@@ -1,0 +1,3 @@
+[submodule "v3/deploy/csrc/ggml"]
+	path = v3/deploy/csrc/ggml
+	url = https://github.com/ggml-org/ggml.git
