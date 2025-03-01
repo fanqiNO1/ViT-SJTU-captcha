@@ -3,3 +3,5 @@ labelled
 labelled.tar.zst
 models
 __pycache__
+.vscode
+build/
