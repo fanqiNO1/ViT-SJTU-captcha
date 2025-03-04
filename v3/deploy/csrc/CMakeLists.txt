@@ -5,8 +5,8 @@ project(ViT-SJTU-captcha-v3-deploy
         HOMEPAGE_URL "https://github.com/fanqiNO1/ViT-SJTU-captcha/tree/main/v3")
 
 # Set options
-option(BUILD_SEGMENT "Build segment library" ON)
-option(BUILD_TEST "Build test" ON)
+option(BUILD_SEGMENT "Build segment library" OFF)
+option(BUILD_TEST "Build test" OFF)
 
 # Find packages
 find_package(OpenCV REQUIRED)
@@ -33,11 +33,10 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -march=native")
 add_subdirectory(ggml)
 
 # Build library
-# add_library(vit_captcha SHARED vit_captcha.cpp)
-# target_include_directories(vit_captcha PUBLIC .)
-# target_link_libraries(vit_captcha PUBLIC ggml)
-# target_link_libraries(vit_captcha PUBLIC ${OpenCV_LIBS})
-# target_compile_features(vit_captcha PUBLIC cxx_std_17)
+add_library(vit_captcha SHARED vit_captcha.cpp segment.cpp)
+target_include_directories(vit_captcha PUBLIC .)
+target_link_libraries(vit_captcha PUBLIC ggml)
+target_compile_features(vit_captcha PUBLIC cxx_std_17)
 
 # Build library
 if (BUILD_SEGMENT)
@@ -56,6 +55,11 @@ endif()
 
 # Build test
 if (BUILD_TEST)
+    add_executable(vit_captcha_test tests/vit_captcha_test.cpp vit_captcha.cpp segment.cpp)
+    target_include_directories(vit_captcha_test PUBLIC .)
+    target_link_libraries(vit_captcha_test PUBLIC ggml)
+    target_compile_features(vit_captcha_test PUBLIC cxx_std_17)
+
     add_executable(segment_test tests/segment_test.cpp segment.cpp)
     target_include_directories(segment_test PUBLIC .)
     target_compile_features(segment_test PUBLIC cxx_std_17)

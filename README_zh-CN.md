@@ -23,19 +23,20 @@
 
 测试环境为 PyTorch v2.6.0，Intel(R) Core(TM) i7-13700，16GB RAM。
 
-> [!IMPORTANT]  
+> \[!IMPORTANT\]
 > 当预处理得到的图片数目（即为字符个数）与真实值不同时，本次字符预测结果将**不会**计入到字符分类准确率的计算过程中。
+>
 > ```python
 > def metric(preds, gts):
 >     assert len(preds) == len(gts)
 >     captcha_correct, captcha_total = 0, 0
 >     char_correct, char_total = 0, 0
-> 
+>
 >     for (pred, gt) in zip(preds, gts):
 >         captcha_total += 1
 >         if pred == gt:
 >             captcha_correct += 1
->         
+>
 >         if len(pred) == len(gt):
 >             char_total += len(gt)
 >             for (p, g) in zip(pred, gt):
@@ -57,4 +58,4 @@
 ## 致谢
 
 - [LightQuantumArchive](https://github.com/LightQuantumArchive) 在 [jaccount-captcha-solver](https://github.com/LightQuantumArchive/jaccount-captcha-solver) 项目中开源了有标注的 Jaccount 验证码数据集。
-- [Gennadiyev](https://github.com/Gennadiyev) 提出需求。
+- [Gennadiyev](https://github.com/Gennadiyev) 提出需求、实现 [v3 版 `segment` 逻辑](v3/train/segment.py)、协助 debug [cpp 部署逻辑](v3/deploy/csrc/vit_captcha.cpp)。

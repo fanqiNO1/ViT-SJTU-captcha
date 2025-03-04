@@ -23,19 +23,20 @@ The latest version of the model is [v2](v2). The performance comparison of all v
 
 Testing environment: PyTorch v2.6.0, Intel(R) Core(TM) i7-13700, 16GB RAM.
 
-> [!IMPORTANT]  
+> \[!IMPORTANT\]
 > When the number of images obtained from preprocessing (i.e., the number of characters) differs from the actual value, the character prediction results for this instance **will not** be included in the calculation of character classification accuracy.
+>
 > ```python
 > def metric(preds, gts):
 >     assert len(preds) == len(gts)
 >     captcha_correct, captcha_total = 0, 0
 >     char_correct, char_total = 0, 0
-> 
+>
 >     for (pred, gt) in zip(preds, gts):
 >         captcha_total += 1
 >         if pred == gt:
 >             captcha_correct += 1
->         
+>
 >         if len(pred) == len(gt):
 >             char_total += len(gt)
 >             for (p, g) in zip(pred, gt):
@@ -57,4 +58,4 @@ Testing environment: PyTorch v2.6.0, Intel(R) Core(TM) i7-13700, 16GB RAM.
 ## Acknowledgments
 
 - [LightQuantumArchive](https://github.com/LightQuantumArchive) open-sourced a labeled Jaccount captcha dataset in the [jaccount-captcha-solver](https://github.com/LightQuantumArchive/jaccount-captcha-solver) project.
-- [Gennadiyev](https://github.com/Gennadiyev) proposed the requirement.
+- [Gennadiyev](https://github.com/Gennadiyev) proposed the requirement, implemented the [`segment` of v3](v3/train/segment.py) and helped me debug the [cpp deploy](v3/deploy/csrc/vit_captcha.cpp).

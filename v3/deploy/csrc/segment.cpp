@@ -201,7 +201,7 @@ SegmentedImages segment(const char* image_path) {
         bboxes = valid_bboxes;
     }
     // final assertion
-    std::sort(bboxes.begin(), bboxes.end(), [](const cv::Rect &a, const cv::Rect &b) {return a.y < b.y;});
+    std::sort(bboxes.begin(), bboxes.end(), [](const cv::Rect &a, const cv::Rect &b) {return a.x < b.x;});
     // extract segmented character images
     SegmentedImages segmented_images;
     for (auto bbox : bboxes) {
