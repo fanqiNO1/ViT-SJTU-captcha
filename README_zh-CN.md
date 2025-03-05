@@ -14,10 +14,12 @@
 
 ## 模型
 
-现在最新版本模型为 [v2](v2)。全部版本模型性能对比如下：
+现在最新版本模型为 [v3](v3)。全部版本模型性能对比如下：
 
 | 模型 | 参数量 | 字符分类准确率 | 验证码准确率 | 字符分类 FPS | 验证码 FPS | 预处理 FPS | 权重 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
+| [v3 in python](train/acc_fps_test.py) | 5.57K | 99.96% (243179/243285) | 99.78% (54063/54180) | 3482.79 | 688.81 | 6190.90 | [权重](https://github.com/fanqiNO1/ViT-SJTU-captcha/releases/tag/model-v3/v3.pth) |
+| [v3 in cpp](deploy/acc_fps_test.py) | 5.57K | 99.96% (243178/243285) | 99.78% (54062/54180) | 20613.91 | 3655.02 | 17980.78 | [权重](https://github.com/fanqiNO1/ViT-SJTU-captcha/releases/tag/model-v3/v3.gguf) |
 | [v2](v2) | 211.53K | 99.99% (240296/240301) | 98.82% (53543/54180) | 1174.71 | 98.43 | 157.62 | [权重](https://github.com/fanqiNO1/ViT-SJTU-captcha/releases/tag/model-v2) |
 | [v1](v1) | 873.25K | 99.99% (240296/240301) | 98.82% (53543/54180) | 1293.20 | 85.02 | 120.53 | [权重](https://github.com/fanqiNO1/ViT-SJTU-captcha/releases/tag/model) |
 
@@ -48,6 +50,8 @@
 
 <details>
 <summary>更新日志（点击展开）</summary>
+
+- 2025.03.05：ViT-SJTU-captcha v3 发布。切图算法的准确率进一步提升，模型参数量进一步降低。此外还提供了 cpp 部署方式，降低了对 RAM 的需求，并大幅提高了 FPS。
 
 - 2024.12.25：ViT-SJTU-captcha v2 发布。其参考了 LLaMA 对于 Transformer 的改进（SwiGLU、GQA 等），整体架构与 Qwen2.5-VL 的 Vision Tower 相似，但早于 Qwen2.5-VL 发布。在不改变准确率的情况下，优化了模型参数量与 RAM 需求。
 

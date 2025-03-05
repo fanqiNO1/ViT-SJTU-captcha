@@ -14,10 +14,12 @@ It is based on the ViT (Vision Transformer) and a series of data preprocessing t
 
 ## Models
 
-The latest version of the model is [v2](v2). The performance comparison of all versions of the models is as follows:
+The latest version of the model is [v3](v3). The performance comparison of all versions of the models is as follows:
 
 | Model | #Parameters | Character Classification Accuracy | Captcha Accuracy | Character Classification FPS | Captcha FPS FPS | Preprocessing FPS | Weights |
 | --- | --- | --- | --- | --- | --- | --- | --- |
+| [v3 in python](train/acc_fps_test.py) | 5.57K | 99.96% (243179/243285) | 99.78% (54063/54180) | 3482.79 | 688.81 | 6190.90 | [weights](https://github.com/fanqiNO1/ViT-SJTU-captcha/releases/tag/model-v3/v3.pth) |
+| [v3 in cpp](deploy/acc_fps_test.py) | 5.57K | 99.96% (243178/243285) | 99.78% (54062/54180) | 20613.91 | 3655.02 | 17980.78 | [weights](https://github.com/fanqiNO1/ViT-SJTU-captcha/releases/tag/model-v3/v3.gguf) |
 | [v2](v2) | 211.53K | 99.99% (240296/240301) | 98.82% (53543/54180) | 1174.71 | 98.43 | 157.62 | [weights](https://github.com/fanqiNO1/ViT-SJTU-captcha/releases/tag/model-v2) |
 | [v1](v1) | 873.25K | 99.99% (240296/240301) | 98.82% (53543/54180) | 1293.20 | 85.02 | 120.53 | [weights](https://github.com/fanqiNO1/ViT-SJTU-captcha/releases/tag/model) |
 
@@ -48,6 +50,8 @@ Testing environment: PyTorch v2.6.0, Intel(R) Core(TM) i7-13700, 16GB RAM.
 
 <details>
 <summary>Changelog (Click to expand)</summary>
+
+- 2025.03.05：ViT-SJTU-captcha v3 is released。The accuracy of the segmenting algorithm has been further improved, and the number of model parameters have been further reduced. Additionally, a cpp deployment method is provided, which reduces the demand for RAM and significantly increases FPS.
 
 - 2024.12.25: ViT-SJTU-captcha v2 is released. It references LLaMA's improvements to the Transformer (SwiGLU, GQA, etc.). Although the overall architecture is similar to Qwen2.5-VL's Vision Tower, it is released earlier than Qwen2.5-VL. Without changing the accuracy, it optimizes the model parameter count and RAM requirements.
 
